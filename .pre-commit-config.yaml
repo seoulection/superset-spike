@@ -115,7 +115,7 @@ repos:
           git fetch origin "$TARGET_BRANCH"
           files=$(git diff --name-only --diff-filter=ACM origin/"$TARGET_BRANCH"..HEAD | grep '^superset/.*\.py$' || true)
           if [ -n "$files" ]; then
-            pylint --rcfile=.pylintrc --load-plugins=superset.extensions.pylint $files
+            pylint --rcfile=.pylintrc --load-plugins=superset.extensions.pylint --reports=no $files
           else
             echo "No Python files to lint."
           fi
