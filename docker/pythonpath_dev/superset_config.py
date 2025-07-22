@@ -98,7 +98,24 @@ class CeleryConfig:
 
 CELERY_CONFIG = CeleryConfig
 
-FEATURE_FLAGS = {"ALERT_REPORTS": True}
+FEATURE_FLAGS = {"ALERT_REPORTS": True, "EMBEDDED_SUPERSET": True,
+                 "ENABLE_TEMPLATE_PROCESSING": True}
+# SPIKE START
+PUBLIC_ROLE_LIKE = "Gamma"      # Gives public users more permissions
+ENABLE_PROXY_FIX = True
+HTTP_HEADERS = {'X-Frame-Options': 'ALLOWALL'}      # Ok when running locally
+ENABLE_CORS = True                                  # Ok when running locally
+CORS_OPTIONS = {
+    'supports_credentials': True,
+    'allow_headers': ['*'],
+    'resources': ['*'],
+    'origins': ['*']
+}
+SESSION_COOKIE_SAMESITE = None
+SESSION_COOKIE_SECURE = True
+TALISMAN_ENABLED = False
+WTF_CSRF_ENABLED = False
+# SPIKE END
 ALERT_REPORTS_NOTIFICATION_DRY_RUN = True
 WEBDRIVER_BASEURL = "http://superset:8088/"  # When using docker compose baseurl should be http://superset_app:8088/  # noqa: E501
 # The base URL for the email report hyperlinks.
