@@ -773,7 +773,7 @@ UPLOAD_CHUNK_SIZE = 4096
 # ---------------------------------------------------
 # Default cache timeout, applies to all cache backends unless specifically overridden in
 # each cache config.
-CACHE_DEFAULT_TIMEOUT = int(timedelta(days=1).total_seconds())
+CACHE_DEFAULT_TIMEOUT = 1
 
 # Default cache for Superset objects
 CACHE_CONFIG: CacheConfig = {"CACHE_TYPE": "NullCache"}
@@ -813,8 +813,8 @@ EXPLORE_FORM_DATA_CACHE_CONFIG: CacheConfig = {
 STORE_CACHE_KEYS_IN_METADATA_DB = False
 
 # CORS Options
-ENABLE_CORS = False
-CORS_OPTIONS: dict[Any, Any] = {}
+ENABLE_CORS = True
+CORS_OPTIONS: dict[Any, Any] = {origins: ["http://localhost:3000"]}
 
 # Sanitizes the HTML content used in markdowns to allow its rendering in a safe manner.
 # Disabling this option is not recommended for security reasons. If you wish to allow
